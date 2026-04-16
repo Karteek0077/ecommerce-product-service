@@ -3,17 +3,17 @@ package com.ecommerce.product_service.service;
 import com.ecommerce.product_service.dto.ProductDTO;
 import com.ecommerce.product_service.model.Product;
 import com.ecommerce.product_service.repository.ProductRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     public ProductDTO createProduct(ProductDTO dto) {
         Product product = mapToEntity(dto);

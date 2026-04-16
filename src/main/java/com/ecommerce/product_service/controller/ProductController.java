@@ -2,7 +2,7 @@ package com.ecommerce.product_service.controller;
 
 import com.ecommerce.product_service.dto.ProductDTO;
 import com.ecommerce.product_service.service.ProductService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +11,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/products")
-@RequiredArgsConstructor
 @CrossOrigin(origins = "*")
 public class ProductController {
 
-    private final ProductService productService;
+    @Autowired
+    private ProductService productService;
 
     @PostMapping
     public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO dto) {
